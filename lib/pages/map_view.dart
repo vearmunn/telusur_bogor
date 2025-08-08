@@ -9,6 +9,8 @@ import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
 import 'package:http/http.dart' as http;
 
+import '../utils/scaffold_message.dart';
+
 class MapPage extends StatefulWidget {
   const MapPage({super.key});
 
@@ -75,10 +77,10 @@ class _MapPageState extends State<MapPage> {
         });
         await _fetchRoute();
       } else {
-        showErrorMessage('Location not found. Please try again');
+        showErrorMessage(context, 'Location not found. Please try again');
       }
     } else {
-      showErrorMessage('Failed to fetch location. Try again later');
+      showErrorMessage(context, 'Failed to fetch location. Try again later');
     }
   }
 
@@ -93,7 +95,7 @@ class _MapPageState extends State<MapPage> {
       final geometry = data['routes'][0]['geometry'];
       _decodePolyline(geometry);
     } else {
-      showErrorMessage('Failed to fetch route. Try again later');
+      showErrorMessage(context, 'Failed to fetch route. Try again later');
     }
   }
 
@@ -109,12 +111,6 @@ class _MapPageState extends State<MapPage> {
               .map((point) => LatLng(point.latitude, point.longitude))
               .toList();
     });
-  }
-
-  void showErrorMessage(String errmessage) {
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(SnackBar(content: Text(errmessage)));
   }
 
   @override

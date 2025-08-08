@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:telusur_bogor/pages/map_view.dart';
+import 'package:telusur_bogor/rute_angkot/presentation/angkot_list_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: MapPage(),
+      home: AngkotListPage(),
     );
   }
 }
