@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:telusur_bogor/rute_angkot/domain/models/angkot_route.dart';
-import 'package:telusur_bogor/rute_angkot/presentation/angkot_route_map_page.dart';
+import 'package:telusur_bogor/main_menu/home/rute_angkot/domain/models/angkot_route.dart';
+import 'package:telusur_bogor/main_menu/home/rute_angkot/presentation/angkot_route_map_page.dart';
 
 class AngkotListPage extends StatelessWidget {
   const AngkotListPage({super.key});

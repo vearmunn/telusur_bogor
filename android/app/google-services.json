@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "439609470968",
+    "project_id": "telusur-bogor",
+    "storage_bucket": "telusur-bogor.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:439609470968:android:6e00bdd31d60b3503f300d",
+        "android_client_info": {
+          "package_name": "com.example.telusur_bogor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcBHDZbq579OHLayAaIHG6iPcae4_b7bw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

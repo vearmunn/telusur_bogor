@@ -9,7 +9,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
 import 'package:http/http.dart' as http;
 
-import '../utils/scaffold_message.dart';
+import '../../utils/scaffold_message.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({super.key});

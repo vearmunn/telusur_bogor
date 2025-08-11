@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 class LatLngPoint {
   final double latitude;
   final double longitude;
@@ -8,6 +9,7 @@ class LatLngPoint {
 class AngkotRoute {
   final String route;
   final String code;
+  final String landmarks;
   final double originLat;
   final double originLon;
   final double destinationLat;
@@ -17,6 +19,7 @@ class AngkotRoute {
   AngkotRoute({
     required this.route,
     required this.code,
+    required this.landmarks,
     required this.originLat,
     required this.originLon,
     required this.destinationLat,
@@ -38,6 +41,7 @@ final List<AngkotRoute> angkotRoutes = [
   AngkotRoute(
     route: "Cicurug",
     code: "02",
+    landmarks: 'Tajur – Ciawi – Raya Sukabumi',
     originLat: -6.620961222017755,
     originLon: 106.81611037487693,
     destinationLat: -6.782902171508681,
@@ -47,6 +51,7 @@ final List<AngkotRoute> angkotRoutes = [
   AngkotRoute(
     route: "Cisarua",
     code: "02A",
+    landmarks: 'Tajur – Ciawi – Cibeureum - Jl. Raya Puncak',
     originLat: -6.620999082090449,
     originLon: 106.81622409150106,
     destinationLat: -6.700273761900149,
@@ -56,6 +61,7 @@ final List<AngkotRoute> angkotRoutes = [
   AngkotRoute(
     route: "Cibedug",
     code: "02B",
+    landmarks: 'Sukasari – Tajur – Ciawi - Seuseupan - Banjarwaru - Cibedug',
     originLat: -6.620999082090449,
     originLon: 106.81622409150106,
     destinationLat: -6.69154397042773,
