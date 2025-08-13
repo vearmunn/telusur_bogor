@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:telusur_bogor/auth/presentation/cubit/auth_cubit.dart';
 import 'package:telusur_bogor/const/colors.dart';
 import 'package:telusur_bogor/widgets/spacer.dart';
 
@@ -12,7 +14,35 @@ class MePage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            verticalSpace(30),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                GestureDetector(
+                  onTap: () => context.read<AuthCubit>().logout(),
+                  child: Container(
+                    margin: EdgeInsets.all(16),
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(Icons.logout, color: Colors.redAccent),
+                        horizontalSpace(8),
+                        Text(
+                          'Logout',
+                          style: TextStyle(
+                            color: Colors.redAccent,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
             Text(
               'Account',
               style: TextStyle(
@@ -63,12 +93,18 @@ class MePage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            _buildOptionTile(icon: Icons.edit_outlined, title: 'Edit Profile'),
             _buildOptionTile(
+              onTap: () {},
+              icon: Icons.edit_outlined,
+              title: 'Edit Profile',
+            ),
+            _buildOptionTile(
+              onTap: () {},
               icon: Icons.bookmark_border_outlined,
               title: 'Saved Places',
             ),
             _buildOptionTile(
+              onTap: () {},
               icon: Icons.category_outlined,
               title: 'My Tripboard',
             ),
@@ -78,29 +114,42 @@ class MePage extends StatelessWidget {
     );
   }
 
-  Container _buildOptionTile({required IconData icon, required String title}) {
-    return Container(
-      margin: EdgeInsets.only(bottom: 12),
-      padding: EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.grey.shade100,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Row(
-        children: [
-          Container(
-            padding: EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: const Color.fromARGB(255, 231, 231, 231),
+  Widget _buildOptionTile({
+    required IconData icon,
+    required String title,
+    required VoidCallback onTap,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        margin: EdgeInsets.only(bottom: 12),
+        padding: EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: Colors.grey.shade100,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Row(
+          children: [
+            Container(
+              padding: EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Color.fromARGB(255, 231, 231, 231),
+              ),
+              child: Icon(icon, color: Colors.black54),
             ),
-            child: Icon(icon, color: Colors.black54),
-          ),
-          horizontalSpace(16),
-          Text(title, style: TextStyle(fontWeight: FontWeight.w500)),
-          Spacer(),
-          Icon(Icons.keyboard_arrow_right, color: Colors.black54),
-        ],
+            horizontalSpace(16),
+            Text(
+              title,
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+                color: Colors.black,
+              ),
+            ),
+            Spacer(),
+            Icon(Icons.keyboard_arrow_right, color: Colors.black54),
+          ],
+        ),
       ),
     );
   }

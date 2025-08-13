@@ -6,7 +6,7 @@ import 'package:telusur_bogor/main_menu/home/rute_angkot/domain/models/angkot_ro
 import 'package:telusur_bogor/main_menu/home/rute_angkot/presentation/angkot_list_page.dart';
 import 'package:telusur_bogor/main_menu/home/tempat/domain/models/place.dart';
 import 'package:telusur_bogor/main_menu/home/homepage/presentation/cubit/tempat_cubit.dart';
-import 'package:telusur_bogor/main_menu/home/tempat/presentation/list_tempat_page.dart';
+import 'package:telusur_bogor/main_menu/home/tempat/presentation/pages/list_tempat_page.dart';
 import 'package:telusur_bogor/widgets/place_card.dart';
 import 'package:telusur_bogor/widgets/spacer.dart';
 
