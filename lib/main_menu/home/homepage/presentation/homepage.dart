@@ -7,6 +7,7 @@ import 'package:telusur_bogor/main_menu/home/rute_angkot/presentation/angkot_lis
 import 'package:telusur_bogor/main_menu/home/tempat/domain/models/place.dart';
 import 'package:telusur_bogor/main_menu/home/homepage/presentation/cubit/tempat_cubit.dart';
 import 'package:telusur_bogor/main_menu/home/tempat/presentation/pages/list_tempat_page.dart';
+import 'package:telusur_bogor/main_menu/me/presentation/cubit/profile_cubit/profile_cubit.dart';
 import 'package:telusur_bogor/widgets/place_card.dart';
 import 'package:telusur_bogor/widgets/spacer.dart';
 
@@ -153,9 +154,16 @@ class Homepage extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Selamat datang di Bogor',
-                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 12),
+              BlocBuilder<ProfileCubit, ProfileState>(
+                builder: (context, state) {
+                  if (state is ProfileLoaded) {
+                    return Text(state.profile.name);
+                  }
+                  return Text(
+                    'Selamat datang di Bogor',
+                    style: TextStyle(fontWeight: FontWeight.w300, fontSize: 12),
+                  );
+                },
               ),
               Text(
                 'Mau Kemana Hari Ini?',

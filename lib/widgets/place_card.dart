@@ -1,7 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:telusur_bogor/main_menu/home/tempat/presentation/pages/place_detail.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:telusur_bogor/const/colors.dart';
 
+import 'package:telusur_bogor/main_menu/home/tempat/presentation/pages/place_detail.dart';
+import 'package:telusur_bogor/main_menu/me/presentation/cubit/profile_cubit/profile_cubit.dart';
+import 'package:telusur_bogor/main_menu/me/presentation/cubit/saved_places_cubit/saved_places_cubit.dart';
 import 'package:telusur_bogor/widgets/spacer.dart';
 
 import '../main_menu/home/tempat/domain/models/place.dart';
@@ -90,9 +94,46 @@ class PlaceCard extends StatelessWidget {
             Positioned(
               right: 12,
               top: 12,
-              child: CircleAvatar(
-                backgroundColor: Colors.black54,
-                child: Icon(Icons.bookmark_outline, color: Colors.white),
+              child: BlocBuilder<ProfileCubit, ProfileState>(
+                builder: (context, state) {
+                  if (state is ProfileLoaded) {
+                    return GestureDetector(
+                      onTap: () async {
+                        final savedPlacesCubit =
+                            context.read<SavedPlacesCubit>();
+                        final profileCubit = context.read<ProfileCubit>();
+                        if (state.profile.savedIdPlaceList.contains(place.id)) {
+                          await savedPlacesCubit.removeFromSavedPlaces(
+                            state.profile.uid,
+                            place.id,
+                          );
+                        } else {
+                          await savedPlacesCubit.addToSavedPlaces(
+                            state.profile.uid,
+                            place.id,
+                          );
+                        }
+                        profileCubit.loadProfile();
+                      },
+                      child: CircleAvatar(
+                        backgroundColor: Colors.black54,
+                        child: Icon(
+                          state.profile.savedIdPlaceList.contains(place.id)
+                              ? Icons.bookmark
+                              : Icons.bookmark_outline,
+                          color:
+                              state.profile.savedIdPlaceList.contains(place.id)
+                                  ? mainColor
+                                  : Colors.white,
+                        ),
+                      ),
+                    );
+                  }
+                  return CircleAvatar(
+                    backgroundColor: Colors.black54,
+                    child: SizedBox.shrink(),
+                  );
+                },
               ),
             ),
           ],

@@ -1,10 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:telusur_bogor/const/colors.dart';
+import 'package:telusur_bogor/main_menu/me/presentation/cubit/profile_cubit/profile_cubit.dart';
 import 'package:telusur_bogor/widgets/spacer.dart';
 
+import '../../../../me/presentation/cubit/saved_places_cubit/saved_places_cubit.dart';
 import '../../domain/models/place.dart';
 
 class PlaceDetail extends StatelessWidget {
@@ -33,7 +36,42 @@ class PlaceDetail extends StatelessWidget {
                   },
                   icon: Icons.arrow_back,
                 ),
-                _buildCircleIcon(onTap: () {}, icon: Icons.bookmark_outline),
+                BlocBuilder<ProfileCubit, ProfileState>(
+                  builder: (context, state) {
+                    if (state is ProfileLoaded) {
+                      return _buildCircleIcon(
+                        onTap: () async {
+                          final savedPlacesCubit =
+                              context.read<SavedPlacesCubit>();
+                          final profileCubit = context.read<ProfileCubit>();
+                          if (state.profile.savedIdPlaceList.contains(
+                            place.id,
+                          )) {
+                            await savedPlacesCubit.removeFromSavedPlaces(
+                              state.profile.uid,
+                              place.id,
+                            );
+                          } else {
+                            await savedPlacesCubit.addToSavedPlaces(
+                              state.profile.uid,
+                              place.id,
+                            );
+                          }
+                          profileCubit.loadProfile();
+                        },
+                        color:
+                            state.profile.savedIdPlaceList.contains(place.id)
+                                ? mainColor
+                                : Colors.white,
+                        icon:
+                            state.profile.savedIdPlaceList.contains(place.id)
+                                ? Icons.bookmark
+                                : Icons.bookmark_outline,
+                      );
+                    }
+                    return SizedBox.shrink();
+                  },
+                ),
               ],
             ),
           ),

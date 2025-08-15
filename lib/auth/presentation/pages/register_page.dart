@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../main_menu/me/presentation/cubit/profile_cubit/profile_cubit.dart';
 import '../cubit/auth_cubit.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -52,12 +53,13 @@ class _RegisterPageState extends State<RegisterPage> {
                   const CircularProgressIndicator()
                 else
                   ElevatedButton(
-                    onPressed: () {
-                      context.read<AuthCubit>().register(
+                    onPressed: () async {
+                      await context.read<AuthCubit>().register(
                         nameCtrl.text,
                         emailCtrl.text,
                         passCtrl.text,
                       );
+                      context.read<ProfileCubit>().loadProfile();
                     },
                     child: const Text("Register"),
                   ),

@@ -33,7 +33,11 @@ class FirestoreUserRepo implements UserRepo {
       name: name,
       email: email,
     );
-    await _firestore.collection("users").doc(newUser.uid).set(newUser.toMap());
+    await _firestore.collection("users").doc(newUser.uid).set({
+      ...newUser.toMap(),
+      'savedIdPlaceList': [],
+      'tripboardList': [],
+    });
 
     return newUser.toDomain();
   }

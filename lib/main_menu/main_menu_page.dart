@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:telusur_bogor/const/colors.dart';
 import 'package:telusur_bogor/main_menu/home/homepage/presentation/homepage.dart';
 import 'package:telusur_bogor/main_menu/map/map_view.dart';
-import 'package:telusur_bogor/main_menu/me/me_page.dart';
+import 'package:telusur_bogor/main_menu/me/presentation/pages/me_page.dart';
 
 class MainMenuPage extends StatefulWidget {
   const MainMenuPage({super.key});

@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:telusur_bogor/main_menu/me/presentation/cubit/profile_cubit/profile_cubit.dart';
 
 import 'package:telusur_bogor/widgets/spacer.dart';
 
@@ -51,11 +52,12 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 20),
 
                 ElevatedButton(
-                  onPressed: () {
-                    context.read<AuthCubit>().login(
+                  onPressed: () async {
+                    await context.read<AuthCubit>().login(
                       emailCtrl.text,
                       passCtrl.text,
                     );
+                    context.read<ProfileCubit>().loadProfile();
                   },
                   child: const Text("Login"),
                 ),

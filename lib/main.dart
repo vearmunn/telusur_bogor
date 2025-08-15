@@ -11,6 +11,10 @@ import 'package:telusur_bogor/main_menu/home/tempat/data/repository/firestore_pl
 import 'package:telusur_bogor/main_menu/home/homepage/presentation/cubit/tempat_cubit.dart';
 import 'package:telusur_bogor/main_menu/home/tempat/presentation/cubit/list_tempat_cubit.dart';
 import 'package:telusur_bogor/main_menu/main_menu_page.dart';
+import 'package:telusur_bogor/main_menu/me/data/repository/firestore_profile_repo.dart';
+import 'package:telusur_bogor/main_menu/me/data/repository/firestore_saved_places_repo.dart';
+import 'package:telusur_bogor/main_menu/me/presentation/cubit/profile_cubit/profile_cubit.dart';
+import 'package:telusur_bogor/main_menu/me/presentation/cubit/saved_places_cubit/saved_places_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,6 +23,8 @@ void main() async {
   final apiWeatherRepo = ApiWeatherRepo();
   final firestorePlaceRepo = FirestorePlaceRepo();
   final firestoreUserRepo = FirestoreUserRepo();
+  final firestoreProfileRepo = FirestoreProfileRepo();
+  final firestoreSavedPlacesRepo = FirestoreSavedPlacesRepo();
 
   runApp(
     MultiBlocProvider(
@@ -27,6 +33,10 @@ void main() async {
         BlocProvider(create: (context) => TempatHomeCubit(firestorePlaceRepo)),
         BlocProvider(create: (context) => ListTempatCubit(firestorePlaceRepo)),
         BlocProvider(create: (context) => AuthCubit(firestoreUserRepo)),
+        BlocProvider(create: (context) => ProfileCubit(firestoreProfileRepo)),
+        BlocProvider(
+          create: (context) => SavedPlacesCubit(firestoreSavedPlacesRepo),
+        ),
       ],
       child: MyApp(),
     ),
