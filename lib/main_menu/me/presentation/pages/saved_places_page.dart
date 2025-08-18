@@ -22,6 +22,9 @@ class SavedPlacesPage extends StatelessWidget {
             return Center(child: CircularProgressIndicator());
           }
           if (state is SavedPlacesLoaded) {
+            if (state.places.isEmpty) {
+              return Center(child: Text('Kosong'));
+            }
             return ListView.builder(
               itemCount: state.places.length,
               itemBuilder: (BuildContext context, int index) {

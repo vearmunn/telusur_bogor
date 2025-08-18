@@ -5,6 +5,7 @@ import 'package:telusur_bogor/const/colors.dart';
 import 'package:telusur_bogor/main_menu/me/presentation/cubit/profile_cubit/profile_cubit.dart';
 import 'package:telusur_bogor/main_menu/me/presentation/cubit/saved_places_cubit/saved_places_cubit.dart';
 import 'package:telusur_bogor/main_menu/me/presentation/pages/saved_places_page.dart';
+import 'package:telusur_bogor/main_menu/me/presentation/pages/tripboard_page.dart';
 import 'package:telusur_bogor/widgets/spacer.dart';
 
 class MePage extends StatefulWidget {
@@ -142,7 +143,12 @@ class _MePageState extends State<MePage> {
               title: 'Saved Places',
             ),
             _buildOptionTile(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => TripboardPage()),
+                );
+              },
               icon: Icons.category_outlined,
               title: 'My Tripboard',
             ),

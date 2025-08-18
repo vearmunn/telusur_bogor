@@ -1,8 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:telusur_bogor/const/colors.dart';
 
+import 'package:telusur_bogor/const/colors.dart';
 import 'package:telusur_bogor/main_menu/home/tempat/presentation/pages/place_detail.dart';
 import 'package:telusur_bogor/main_menu/me/presentation/cubit/profile_cubit/profile_cubit.dart';
 import 'package:telusur_bogor/main_menu/me/presentation/cubit/saved_places_cubit/saved_places_cubit.dart';
@@ -14,11 +14,13 @@ class PlaceCard extends StatelessWidget {
   final Place place;
   final EdgeInsetsGeometry padding;
   final bool inVerticalList;
+  final bool showAddToTripboardButton;
   const PlaceCard({
     super.key,
     required this.place,
     required this.padding,
     this.inVerticalList = true,
+    this.showAddToTripboardButton = true,
   });
 
   @override
@@ -27,7 +29,13 @@ class PlaceCard extends StatelessWidget {
       onTap:
           () => Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => PlaceDetail(place: place)),
+            MaterialPageRoute(
+              builder:
+                  (context) => PlaceDetail(
+                    place: place,
+                    showAddToTripboardButton: showAddToTripboardButton,
+                  ),
+            ),
           ),
       child: Padding(
         padding: padding,
