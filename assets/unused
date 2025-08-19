@@ -1,0 +1,53 @@
+// Future _fetchCoordinatePoints(String id) async {
+  //   final url = Uri.parse(
+  //     // 'https://nominatim.openstreetmap.org/search?q=$location&format=json&limit=1',
+  //     'https://nominatim.openstreetmap.org/lookup?place_id=$id&format=json',
+  //   );
+  //   final response = await http.get(url);
+  //   if (response.statusCode == 200) {
+  //     final data = json.decode(response.body);
+  //     if (data.isNotEmpty) {
+  //       final lat = double.parse(data[0]['lat']);
+  //       final lon = double.parse(data[0]['lon']);
+  //       setState(() {
+  //         _destinationLatLng = LatLng(lat, lon);
+  //       });
+  //       await _fetchRoute();
+  //     } else {
+  //       showErrorMessage(context, 'Location not found. Please try again');
+  //     }
+  //   } else {
+  //     showErrorMessage(context, 'Failed to fetch location. Try again later');
+  //   }
+  // }
+
+  // Future _fetchRoute(double lat, double lon) async {
+  //   // if (_currentLatLng == null || _destinationLatLng == null) return;
+  //   _destinationLatLng = LatLng(lat, lon);
+  //   final url = Uri.parse(
+  //     'http://router.project-osrm.org/route/v1/driving/${_currentLatLng!.longitude},${_currentLatLng!.latitude};${_destinationLatLng!.longitude},${_destinationLatLng!.latitude}?overview=full&geometries=polyline',
+  //   );
+  //   final response = await http.get(url);
+  //   if (response.statusCode == 200) {
+  //     final data = json.decode(response.body);
+  //     final geometry = data['routes'][0]['geometry'];
+  //     _decodePolyline(geometry);
+
+  //   } else {
+  //     showErrorMessage(context, 'Failed to fetch route. Try again later');
+  //   }
+  // }
+
+  // void _decodePolyline(String encodedPolyline) {
+  //   PolylinePoints polylinePoints = PolylinePoints();
+  //   List<PointLatLng> decodedPoints = polylinePoints.decodePolyline(
+  //     encodedPolyline,
+  //   );
+
+  //   setState(() {
+  //     routeLatLng =
+  //         decodedPoints
+  //             .map((point) => LatLng(point.latitude, point.longitude))
+  //             .toList();
+  //   });
+  // }

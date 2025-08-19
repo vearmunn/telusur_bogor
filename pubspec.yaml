@@ -48,6 +48,7 @@ dependencies:
   equatable: ^2.0.7
   shared_preferences: ^2.5.3
   image_collage:
+  flutter_typeahead: ^5.2.0
 
 dev_dependencies:
   flutter_test:
@@ -75,6 +76,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/dummy_data.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

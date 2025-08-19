@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:telusur_bogor/const/colors.dart';
 import 'package:telusur_bogor/main_menu/home/homepage/presentation/homepage.dart';
-import 'package:telusur_bogor/main_menu/map/map_view.dart';
+import 'package:telusur_bogor/main_menu/map/presentation/cubit/map_marker_cubit/map_marker_cubit.dart';
+import 'package:telusur_bogor/main_menu/map/presentation/map_view.dart';
 import 'package:telusur_bogor/main_menu/me/presentation/pages/me_page.dart';
 
 class MainMenuPage extends StatefulWidget {
@@ -20,11 +22,13 @@ class _MainMenuPageState extends State<MainMenuPage> {
       body: screens[_selectedIndex],
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        onPressed:
-            () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => MapPage()),
-            ),
+        onPressed: () {
+          context.read<MapMarkerCubit>().loadMapMarkers();
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => MapPage()),
+          );
+        },
         shape: CircleBorder(),
         backgroundColor: mainColor,
         elevation: 3,

@@ -12,6 +12,9 @@ import 'package:telusur_bogor/main_menu/home/tempat/data/repository/firestore_pl
 import 'package:telusur_bogor/main_menu/home/homepage/presentation/cubit/tempat_cubit.dart';
 import 'package:telusur_bogor/main_menu/home/tempat/presentation/cubit/list_tempat_cubit.dart';
 import 'package:telusur_bogor/main_menu/main_menu_page.dart';
+import 'package:telusur_bogor/main_menu/map/data/repository/json_map_marker_repo.dart';
+import 'package:telusur_bogor/main_menu/map/presentation/cubit/map_marker_cubit/map_marker_cubit.dart';
+import 'package:telusur_bogor/main_menu/map/presentation/cubit/search_location_cubit/search_location_cubit.dart';
 import 'package:telusur_bogor/main_menu/me/data/repository/firestore_profile_repo.dart';
 import 'package:telusur_bogor/main_menu/me/data/repository/firestore_saved_places_repo.dart';
 import 'package:telusur_bogor/main_menu/me/data/repository/firestore_tripboard_repo.dart';
@@ -29,10 +32,13 @@ void main() async {
   final firestoreProfileRepo = FirestoreProfileRepo();
   final firestoreSavedPlacesRepo = FirestoreSavedPlacesRepo();
   final firestoreTripboardRepo = FirestoreTripboardRepo();
+  final jsonMapMarkerRepo = JsonMapMarkerRepo();
 
   runApp(
     MultiBlocProvider(
       providers: [
+        // BlocProvider(create: (context) => RouteCubit()),
+        // BlocProvider(create: (context) => CurrentPositionCubit()),
         BlocProvider(create: (context) => WeatherCubit(apiWeatherRepo)),
         BlocProvider(create: (context) => TempatHomeCubit(firestorePlaceRepo)),
         BlocProvider(create: (context) => ListTempatCubit(firestorePlaceRepo)),
@@ -44,6 +50,8 @@ void main() async {
         BlocProvider(
           create: (context) => TripboardCubit(firestoreTripboardRepo),
         ),
+        BlocProvider(create: (context) => MapMarkerCubit(jsonMapMarkerRepo)),
+        BlocProvider(create: (context) => SearchCubit()),
       ],
       child: MyApp(),
     ),
