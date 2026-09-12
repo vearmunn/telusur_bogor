@@ -41,8 +41,8 @@ The project was developed as a learning and portfolio project, and development m
 
 ## Screenshots
 
-<img width="320" height="1083" alt="WhatsApp Image 2026-09-12 at 15 19 01 (1)" src="https://github.com/user-attachments/assets/5c5f848e-5de7-4042-8de1-90fefeed705b" />
-<br>
+<img width="1080" height="3701" alt="Screenshot_2026-09-12-14-17-30-03 jpg" src="https://github.com/user-attachments/assets/4bea404f-5738-4492-8120-2663d674feff" />
+<img width="1080" height="4864" alt="222" src="https://github.com/user-attachments/assets/bd6d1783-ab9e-4bba-ab3e-faec657a1219" />
 <img width="320"  alt="WhatsApp Image 2026-09-12 at 15 19 03 (3)" src="https://github.com/user-attachments/assets/39db4634-e243-4195-aba7-4ea004c38c64" />
 <img width="320"  alt="WhatsApp Image 2026-09-12 at 15 19 02" src="https://github.com/user-attachments/assets/167e387c-14e6-4bf5-b6e0-bc44461b6af3" />
 <img width="320"  alt="WhatsApp Image 2026-09-12 at 15 19 01 (2)" src="https://github.com/user-attachments/assets/f055bddc-7af7-409e-ae5e-e8da2ee24060" />
