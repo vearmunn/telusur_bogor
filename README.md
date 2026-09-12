@@ -41,11 +41,12 @@ The project was developed as a learning and portfolio project, and development m
 
 ## Screenshots
 
+<img width="320" height="1083" alt="WhatsApp Image 2026-09-12 at 15 19 01 (1)" src="https://github.com/user-attachments/assets/5c5f848e-5de7-4042-8de1-90fefeed705b" />
+<br>
 <img width="320"  alt="WhatsApp Image 2026-09-12 at 15 19 03 (3)" src="https://github.com/user-attachments/assets/39db4634-e243-4195-aba7-4ea004c38c64" />
 <img width="320"  alt="WhatsApp Image 2026-09-12 at 15 19 02" src="https://github.com/user-attachments/assets/167e387c-14e6-4bf5-b6e0-bc44461b6af3" />
 <img width="320"  alt="WhatsApp Image 2026-09-12 at 15 19 01 (2)" src="https://github.com/user-attachments/assets/f055bddc-7af7-409e-ae5e-e8da2ee24060" />
 <img width="320"  alt="WhatsApp Image 2026-09-12 at 15 19 01" src="https://github.com/user-attachments/assets/f4163965-7a3c-4a31-a802-8ba57aa1a3d7" />
-<img width="320" height="1083" alt="WhatsApp Image 2026-09-12 at 15 19 01 (1)" src="https://github.com/user-attachments/assets/5c5f848e-5de7-4042-8de1-90fefeed705b" />
 
 ## License
 
